@@ -25,6 +25,8 @@
 1. Зайдите в веб-интерфейс grafana, используя авторизационные данные, указанные в манифесте docker-compose.
 1. Подключите поднятый вами prometheus, как источник данных.
 1. Решение домашнего задания — скриншот веб-интерфейса grafana со списком подключенных Datasource.
+![image](https://github.com/suntsovvv/monitoring-03-grafana/assets/154943765/903049f1-2448-44a3-9501-2ab82c175db9)
+
 
 ## Задание 2
 
@@ -41,7 +43,34 @@
 - количество свободной оперативной памяти;
 - количество места на файловой системе.
 
-Для решения этого задания приведите promql-запросы для выдачи этих метрик, а также скриншот получившейся Dashboard.
+Для решения этого задания приведите promql-запросы для выдачи этих метрик, а также скриншот получившейся Dashboard.   
+
+### утилизация CPU для nodeexporter:   
+
+```
+100 - (avg (rate(node_cpu_seconds_total{job=~"nodeexporter",mode="idle"}[1m])) * 100)
+```
+### CPULA 1/5/15:
+
+```
+avg(node_load1{job=~"nodeexporter"})
+avg(node_load5{job=~"nodeexporter"})
+avg(node_load15{job=~"nodeexporter"})
+```
+
+### количество свободной оперативной памяти:
+
+```
+node_memory_MemFree_bytes{job=~"nodeexporter"}
+```
+
+### количество места на файловой системе:
+
+```
+node_filesystem_avail_bytes{job=~"nodeexporter",mountpoint="/",fstype!="rootfs"}
+```
+![image](https://github.com/suntsovvv/monitoring-03-grafana/assets/154943765/26679954-73e3-4711-9945-5381d64ca0b1)
+
 
 ## Задание 3
 
