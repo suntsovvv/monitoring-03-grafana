@@ -76,6 +76,12 @@ node_filesystem_avail_bytes{job=~"nodeexporter",mountpoint="/",fstype!="rootfs"}
 
 1. Создайте для каждой Dashboard подходящее правило alert — можно обратиться к первой лекции в блоке «Мониторинг».
 1. В качестве решения задания приведите скриншот вашей итоговой Dashboard.
+![image](https://github.com/suntsovvv/monitoring-03-grafana/assets/154943765/ac169d70-4a2a-4a32-9c2b-ad90b2f89e64)
+Создал канал связи для Telegram.
+Создал условия для сработки аллерта.
+В телеграм пришло оповещение:
+![image](https://github.com/suntsovvv/monitoring-03-grafana/assets/154943765/ddf558a3-d448-4b4a-ba61-fe4b699c0dd7)
+
 
 ## Задание 4
 
